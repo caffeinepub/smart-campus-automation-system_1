@@ -1,0 +1,230 @@
+{
+  "kind": "build_request",
+  "title": "Build Smart Campus Automation System with IoT monitoring and AI optimization",
+  "projectName": "Smart Campus Hub",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model for campus IoT devices including device ID, type (sensor/actuator), location (building, room), status (online/offline), and last reading timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Device records can be created, read, updated, and deleted",
+        "Device status can be queried by location or type",
+        "Timestamp tracks last communication from each device"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend functions to record and retrieve sensor readings (temperature, humidity, occupancy, energy consumption) with device ID, value, unit, and timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sensor readings are stored with device reference and timestamp",
+        "Historical readings can be queried by device and time range",
+        "Support for multiple sensor types with different units"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create backend automation rules system where rules define conditions (sensor thresholds) and actions (actuator commands) with enable/disable status",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Rules can be created with condition logic and target actions",
+        "Rules can be enabled or disabled",
+        "Rules include metadata like name, description, and creation date"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend optimization engine that analyzes sensor data patterns and generates recommendations for energy savings, space utilization, and operational efficiency",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "System analyzes historical sensor data to identify patterns",
+        "Recommendations are generated with priority levels",
+        "Each recommendation includes estimated impact and suggested actions"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build backend alert system that triggers notifications when sensor values exceed thresholds or devices go offline, with severity levels and acknowledgment tracking",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Alerts are created automatically based on threshold violations",
+        "Alerts include severity classification (info, warning, critical)",
+        "Users can acknowledge and resolve alerts"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create a frontend dashboard displaying real-time campus operations overview with device status summary, active alerts count, current sensor readings, and system health metrics",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard shows aggregated statistics across all devices",
+        "Real-time updates reflect current system state",
+        "Visual indicators for system health and alert status"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build frontend device management interface with searchable/filterable list of all IoT devices, showing type, location, status, and last reading, with ability to view device details and history",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Devices can be filtered by type, location, and status",
+        "Search functionality finds devices by ID or location",
+        "Device detail view shows complete information and reading history"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create frontend automation rules interface where users can create, edit, enable/disable rules with visual condition builder and action selector",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can define rules without technical knowledge",
+        "Rule conditions support comparison operators and logical combinations",
+        "Actions can target specific devices or device groups"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Build frontend analytics view displaying historical sensor data with interactive charts showing trends over time, energy consumption patterns, and occupancy analytics by building or zone",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Charts visualize sensor data trends over selectable time ranges",
+        "Data can be filtered by device type, location, or metric",
+        "Export functionality for reports and analysis"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create frontend alerts and notifications panel showing active alerts sorted by severity, with filtering options and ability to acknowledge or resolve alerts",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Alerts are displayed with clear severity indicators",
+        "Users can filter alerts by type, severity, or status",
+        "Alert actions (acknowledge, resolve) update backend state"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Build frontend AI recommendations view displaying optimization suggestions with priority, estimated impact, implementation instructions, and accept/dismiss actions",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Recommendations are presented with clear priority and impact metrics",
+        "Each recommendation includes actionable implementation steps",
+        "Users can accept (create automation rule) or dismiss recommendations"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement role-based access control with at least three roles: Admin (full system access), Operator (device monitoring and rule management), and Viewer (read-only access to dashboards and analytics)",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users are assigned specific roles with defined permissions",
+        "Backend enforces role-based access for all operations",
+        "Unauthorized access attempts are rejected with appropriate errors"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Create a visually cohesive design system with a modern tech-forward aesthetic using mint green and slate gray as primary colors, with clean geometric layouts and subtle data visualization accents that convey efficiency and intelligence",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All UI components follow consistent color scheme and typography",
+        "Design conveys professionalism suitable for university operations",
+        "Visual hierarchy clearly distinguishes primary actions from secondary content"
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must use single-actor Motoko architecture with all logic in main actor",
+    "Frontend must use React with TypeScript, Tailwind CSS, and Shadcn components",
+    "Do not modify immutable frontend paths: hooks/useInternetIdentity, hooks/useActor, main.tsx, components/ui",
+    "Authentication must use Internet Identity only",
+    "No external databases, cloud providers, or third-party API integrations",
+    "No real-time WebSocket features or push notifications"
+  ],
+  "nonGoals": [
+    "Physical IoT device firmware or hardware integration",
+    "Actual machine learning model training or AI inference",
+    "Integration with existing university systems or databases",
+    "Mobile application development",
+    "Email or SMS notification delivery",
+    "Real-time device communication protocols",
+    "External cloud service deployments",
+    "Third-party authentication providers",
+    "Video surveillance or physical security systems"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Modern isometric illustration of a smart campus with connected buildings and IoT sensors, using mint green and slate gray color scheme (hero-campus.dim_1200x400.png)",
+      "Icon set for device types: temperature sensor, occupancy sensor, energy meter, lighting control, HVAC control in mint green line style (device-icons.dim_512x512.png)",
+      "Abstract geometric pattern background representing data connectivity and optimization in subtle mint and gray tones (pattern-bg.dim_1920x1080.png)"
+    ],
+    "edits": []
+  }
+}

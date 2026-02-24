@@ -1,0 +1,274 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Smart Campus Hub Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Create a dashboard displaying real-time campus operations overview with device status, alerts, sensor readings, and system health metrics",
+      "acceptanceCriteria": [
+        "Dashboard shows aggregated statistics across all devices",
+        "Real-time updates reflect current system state",
+        "Visual indicators for system health and alert status"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Dashboard.tsx",
+          "operation": "create",
+          "description": "Create Dashboard page component that fetches and displays aggregated campus metrics including total devices by status (online/offline/maintenance), active alerts count by severity, latest sensor readings summary, and system health indicators. Use the authorization component to ensure only authenticated users can access. Integrate hero-campus.dim_1200x400.png from frontend/public/assets/generated/hero-campus.dim_1200x400.png as a visual header element. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useDashboardMetrics.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch dashboard metrics by calling getAllDevices(), getUnacknowledgedAlerts(), and getLatestSensorReading() for key devices. Compute aggregated statistics including device counts by status, alert counts by severity, and current sensor averages."
+        },
+        {
+          "path": "frontend/src/components/MetricCard.tsx",
+          "operation": "create",
+          "description": "Create reusable MetricCard component to display individual dashboard metrics with icon, value, label, and optional status indicator using mint green and slate gray theme colors."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Dashboard route (/) to application routing structure. Ensure Dashboard is set as default landing page after authentication."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build device management interface with searchable/filterable device list showing type, location, status, and history",
+      "acceptanceCriteria": [
+        "Devices can be filtered by type, location, and status",
+        "Search functionality finds devices by ID or location",
+        "Device detail view shows complete information and reading history"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Devices.tsx",
+          "operation": "create",
+          "description": "Create Devices page component displaying searchable/filterable device list using getAllDevices(). Include search input for device ID/location filtering, dropdown filters for type and status, and device cards/table rows. Each device entry shows type icon from frontend/public/assets/generated/device-icons.dim_512x512.png, location, status badge, and last reading timestamp. Link to device detail view. Use authorization component to restrict access to authenticated users."
+        },
+        {
+          "path": "frontend/src/pages/DeviceDetail.tsx",
+          "operation": "create",
+          "description": "Create DeviceDetail page component showing comprehensive device information using getDevice(id) and getSensorReadings(deviceId). Display device metadata, current status, location details, and reading history with timestamps. Include device type icon from frontend/public/assets/generated/device-icons.dim_512x512.png."
+        },
+        {
+          "path": "frontend/src/hooks/useDevices.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for device operations: useGetAllDevices() to fetch device list, useGetDevice(id) for single device details, and useGetSensorReadings(deviceId) for reading history."
+        },
+        {
+          "path": "frontend/src/components/DeviceStatusBadge.tsx",
+          "operation": "create",
+          "description": "Create DeviceStatusBadge component to display device status (online/offline/maintenance) with appropriate color coding using mint green for online, slate gray for offline, and amber for maintenance."
+        },
+        {
+          "path": "frontend/src/components/DeviceTypeIcon.tsx",
+          "operation": "create",
+          "description": "Create DeviceTypeIcon component that renders appropriate device type icon from frontend/public/assets/generated/device-icons.dim_512x512.png based on device type (sensor/actuator) and sensor type (temperature/humidity/occupancy/energy)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Devices (/devices) and DeviceDetail (/devices/:id) routes to application routing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create automation rules interface for creating, editing, and managing rules with visual condition builder",
+      "acceptanceCriteria": [
+        "Users can define rules without technical knowledge",
+        "Rule conditions support comparison operators and logical combinations",
+        "Actions can target specific devices or device groups"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AutomationRules.tsx",
+          "operation": "create",
+          "description": "Create AutomationRules page displaying all automation rules using getAllRules(). Show rule list with name, enabled status, condition summary, and action summary. Include add/edit/delete controls restricted by authorization component (admin/operator roles). Each rule shows enable/disable toggle."
+        },
+        {
+          "path": "frontend/src/pages/RuleEditor.tsx",
+          "operation": "create",
+          "description": "Create RuleEditor page for creating/editing automation rules using createOrUpdateRule(). Include visual condition builder with device selector, sensor type picker, comparison operator dropdown (greaterThan/lessThan/equalTo/notEqualTo), and threshold input. Action builder allows selecting target devices and commands (turnOn/turnOff/setTemperature). Use authorization component to enforce admin/operator access."
+        },
+        {
+          "path": "frontend/src/hooks/useAutomationRules.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for automation rules: useGetAllRules() to fetch rules list, useGetRule(id) for single rule, useCreateOrUpdateRule() mutation for saving rules, useToggleRule() mutation for enable/disable, and useDeleteRule() mutation for deletion."
+        },
+        {
+          "path": "frontend/src/components/ConditionBuilder.tsx",
+          "operation": "create",
+          "description": "Create ConditionBuilder component providing visual interface for defining rule conditions with device selector, sensor type dropdown, comparison operator picker, and threshold numeric input. Support multiple conditions with add/remove controls."
+        },
+        {
+          "path": "frontend/src/components/ActionBuilder.tsx",
+          "operation": "create",
+          "description": "Create ActionBuilder component for defining rule actions with device selector and command picker (turnOn/turnOff/setTemperature with value input for thermostat). Support multiple actions with add/remove controls."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add AutomationRules (/automation) and RuleEditor (/automation/new, /automation/:id/edit) routes to application routing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Build analytics view displaying historical sensor data with interactive charts and energy/occupancy analytics",
+      "acceptanceCriteria": [
+        "Charts visualize sensor data trends over selectable time ranges",
+        "Data can be filtered by device type, location, or metric",
+        "Export functionality for reports and analysis"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Analytics.tsx",
+          "operation": "create",
+          "description": "Create Analytics page displaying historical sensor data visualizations using getSensorReadings(deviceId) for selected devices. Include time range selector, device/location filters, and metric type filter (temperature/humidity/occupancy/energy). Display interactive line/area charts showing trends over time. Include export button for CSV/JSON data export. Use pattern-bg.dim_1920x1080.png from frontend/public/assets/generated/pattern-bg.dim_1920x1080.png as subtle background. Use authorization component for access control."
+        },
+        {
+          "path": "frontend/src/hooks/useAnalytics.ts",
+          "operation": "create",
+          "description": "Create React Query hook useGetAnalyticsData() to fetch sensor readings for multiple devices and aggregate data for chart visualization. Include data transformation logic for time-series formatting."
+        },
+        {
+          "path": "frontend/src/components/SensorChart.tsx",
+          "operation": "create",
+          "description": "Create SensorChart component using recharts or similar charting library to display time-series sensor data with responsive design, axis labels, tooltips, and legend. Support multiple series for comparison."
+        },
+        {
+          "path": "frontend/src/utils/exportData.ts",
+          "operation": "create",
+          "description": "Create utility functions for exporting analytics data to CSV and JSON formats with proper formatting and filename generation including timestamp."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Analytics (/analytics) route to application routing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create alerts panel showing active alerts with severity filtering and acknowledgment actions",
+      "acceptanceCriteria": [
+        "Alerts are displayed with clear severity indicators",
+        "Users can filter alerts by type, severity, or status",
+        "Alert actions (acknowledge, resolve) update backend state"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Alerts.tsx",
+          "operation": "create",
+          "description": "Create Alerts page displaying all alerts using getAllAlerts() and getUnacknowledgedAlerts(). Show alerts sorted by severity with color-coded badges (critical=red, warning=amber, info=blue). Include filters for severity, status (acknowledged/unacknowledged), and sensor type. Each alert shows timestamp, device ID, message, and acknowledge/delete actions. Use authorization component for access control."
+        },
+        {
+          "path": "frontend/src/hooks/useAlerts.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for alert operations: useGetAllAlerts() to fetch all alerts, useGetUnacknowledgedAlerts() for unacknowledged only, useAcknowledgeAlert() mutation for acknowledgment, and useDeleteAlert() mutation for deletion."
+        },
+        {
+          "path": "frontend/src/components/AlertCard.tsx",
+          "operation": "create",
+          "description": "Create AlertCard component displaying individual alert with severity badge, timestamp, device reference, message, and action buttons (acknowledge/delete) with appropriate styling using mint green and slate gray theme."
+        },
+        {
+          "path": "frontend/src/components/SeverityBadge.tsx",
+          "operation": "create",
+          "description": "Create SeverityBadge component to display alert severity (critical/warning/info) with color-coded styling (red/amber/blue) consistent with design system."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Alerts (/alerts) route to application routing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Build AI recommendations view displaying optimization suggestions with priority, impact, and actions",
+      "acceptanceCriteria": [
+        "Recommendations are presented with clear priority and impact metrics",
+        "Each recommendation includes actionable implementation steps",
+        "Users can accept (create automation rule) or dismiss recommendations"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Recommendations.tsx",
+          "operation": "create",
+          "description": "Create Recommendations page displaying optimization suggestions using getRecommendations(). Show recommendations grouped by category (energySavings/spaceUtilization/operationalEfficiency) with estimated impact, description, timestamp, and actions (accept/dismiss). Accept action opens rule creation flow, dismiss action calls deleteRecommendation(). Use authorization component to restrict access. Generate new recommendations with generateRecommendations() button for admin/operator roles."
+        },
+        {
+          "path": "frontend/src/hooks/useRecommendations.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for recommendations: useGetRecommendations() to fetch list, useGenerateRecommendations() mutation to trigger generation, and useDeleteRecommendation() mutation for dismissal."
+        },
+        {
+          "path": "frontend/src/components/RecommendationCard.tsx",
+          "operation": "create",
+          "description": "Create RecommendationCard component displaying individual recommendation with category badge, estimated impact metric, description text, timestamp, and action buttons (accept/dismiss) using mint green and slate gray styling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Recommendations (/recommendations) route to application routing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Create cohesive design system with mint green and slate gray theme, clean geometric layouts, and modern tech aesthetic",
+      "acceptanceCriteria": [
+        "All UI components follow consistent color scheme and typography",
+        "Design conveys professionalism suitable for university operations",
+        "Visual hierarchy clearly distinguishes primary actions from secondary content"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to include mint green (#10b981 or similar) and slate gray (#64748b) as primary theme colors. Define CSS custom properties for consistent color usage across components. Include subtle geometric patterns and data visualization accent styles."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom color palette including mint green and slate gray variants (50-950 scale). Configure typography scale for professional appearance. Add custom spacing and border radius values for clean geometric layouts."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component providing consistent page structure with header (logo, navigation, login button), sidebar navigation menu (Dashboard, Devices, Automation, Analytics, Alerts, Recommendations), and main content area. Use pattern-bg.dim_1920x1080.png from frontend/public/assets/generated/pattern-bg.dim_1920x1080.png as subtle background texture. Include role-based navigation visibility using authorization component."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create Navigation component for sidebar menu with links to all main pages (Dashboard, Devices, Automation, Analytics, Alerts, Recommendations). Use active route highlighting. Include role-based visibility for admin-only features using authorization component. Include icons for each navigation item."
+        },
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create LoginButton component following authorization component usage instructions for Internet Identity authentication. Handle login/logout with proper state management and query cache clearing on logout. Display user name from profile when authenticated. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetup.tsx",
+          "operation": "create",
+          "description": "Create ProfileSetup modal component following authorization component pattern for first-time user profile creation. Prompt for name, department, and contact info when getCallerUserProfile() returns null. Use saveCallerUserProfile() to save initial profile. Implement proper loading state handling to prevent modal flash as documented in authorization component usage. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useProfile.ts",
+          "operation": "create",
+          "description": "Create React Query hooks following authorization component pattern: useGetCallerUserProfile() with proper loading state handling to prevent flash, useSaveCallerUserProfile() mutation for profile updates. Implement as documented in authorization component usage instructions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component. Add authentication guard using authorization component to redirect unauthenticated users to login flow. Integrate ProfileSetup modal to prompt for user information on first login when profile does not exist."
+        }
+      ]
+    }
+  ]
+}

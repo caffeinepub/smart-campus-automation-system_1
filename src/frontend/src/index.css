@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Mint green and slate gray theme - Light mode */
+        --background: 0.99 0 0;
+        --foreground: 0.25 0.015 255;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.015 255;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.015 255;
+        
+        /* Mint green primary */
+        --primary: 0.65 0.15 165;
+        --primary-foreground: 1 0 0;
+        
+        /* Slate gray secondary */
+        --secondary: 0.55 0.02 255;
+        --secondary-foreground: 1 0 0;
+        
+        --muted: 0.96 0.005 255;
+        --muted-foreground: 0.50 0.015 255;
+        
+        --accent: 0.92 0.01 165;
+        --accent-foreground: 0.25 0.015 255;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 1 0 0;
+        
+        --border: 0.90 0.01 255;
+        --input: 0.90 0.01 255;
+        --ring: 0.65 0.15 165;
+        
+        /* Chart colors with mint/slate theme */
+        --chart-1: 0.65 0.15 165;
+        --chart-2: 0.55 0.02 255;
+        --chart-3: 0.75 0.12 180;
+        --chart-4: 0.60 0.18 150;
+        --chart-5: 0.45 0.02 240;
+        
+        /* Sidebar */
+        --sidebar: 0.98 0 0;
+        --sidebar-foreground: 0.30 0.015 255;
+        --sidebar-primary: 0.65 0.15 165;
+        --sidebar-primary-foreground: 1 0 0;
+        --sidebar-accent: 0.94 0.005 165;
+        --sidebar-accent-foreground: 0.30 0.015 255;
+        --sidebar-border: 0.92 0.01 255;
+        --sidebar-ring: 0.65 0.15 165;
+        
+        /* Custom tokens for campus theme */
+        --success: 0.65 0.15 165;
+        --warning: 0.70 0.15 65;
+        --info: 0.60 0.12 230;
+    }
+
+    .dark {
+        --background: 0.18 0.015 255;
+        --foreground: 0.95 0.005 255;
+        
+        --card: 0.22 0.015 255;
+        --card-foreground: 0.95 0.005 255;
+        
+        --popover: 0.20 0.015 255;
+        --popover-foreground: 0.95 0.005 255;
+        
+        /* Mint green primary - adjusted for dark */
+        --primary: 0.70 0.15 165;
+        --primary-foreground: 0.15 0.015 255;
+        
+        /* Slate gray secondary - adjusted for dark */
+        --secondary: 0.35 0.02 255;
+        --secondary-foreground: 0.95 0.005 255;
+        
+        --muted: 0.28 0.015 255;
+        --muted-foreground: 0.65 0.01 255;
+        
+        --accent: 0.30 0.02 165;
+        --accent-foreground: 0.95 0.005 255;
+        
+        --destructive: 0.60 0.22 25;
+        --destructive-foreground: 0.95 0.005 255;
+        
+        --border: 0.30 0.015 255;
+        --input: 0.30 0.015 255;
+        --ring: 0.70 0.15 165;
+        
+        /* Chart colors - dark mode */
+        --chart-1: 0.70 0.15 165;
+        --chart-2: 0.55 0.02 255;
+        --chart-3: 0.75 0.12 180;
+        --chart-4: 0.65 0.18 150;
+        --chart-5: 0.50 0.02 240;
+        
+        /* Sidebar - dark */
+        --sidebar: 0.20 0.015 255;
+        --sidebar-foreground: 0.90 0.005 255;
+        --sidebar-primary: 0.70 0.15 165;
+        --sidebar-primary-foreground: 0.15 0.015 255;
+        --sidebar-accent: 0.26 0.015 165;
+        --sidebar-accent-foreground: 0.90 0.005 255;
+        --sidebar-border: 0.30 0.015 255;
+        --sidebar-ring: 0.70 0.15 165;
+        
+        /* Custom tokens - dark */
+        --success: 0.70 0.15 165;
+        --warning: 0.75 0.15 65;
+        --info: 0.65 0.12 230;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    /* Custom utility classes for campus theme */
+    .text-success {
+        color: oklch(var(--success));
+    }
+    
+    .text-warning {
+        color: oklch(var(--warning));
+    }
+    
+    .text-info {
+        color: oklch(var(--info));
+    }
+    
+    .bg-success {
+        background-color: oklch(var(--success));
+    }
+    
+    .bg-warning {
+        background-color: oklch(var(--warning));
+    }
+    
+    .bg-info {
+        background-color: oklch(var(--info));
+    }
+    
+    .border-success {
+        border-color: oklch(var(--success));
+    }
+    
+    .border-warning {
+        border-color: oklch(var(--warning));
+    }
+    
+    .border-info {
+        border-color: oklch(var(--info));
+    }
+}

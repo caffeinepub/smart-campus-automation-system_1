@@ -1,0 +1,163 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-frontend-dashboard-displaying-real-time-campus-operations-overview-with-device-status-summary-active-alerts-count-current-sensor-readings-and-system-health-metrics",
+      "featureTitle": "Create a frontend dashboard displaying real-time campus operations overview with device status summary, active alerts count, current sensor readings, and system health metrics",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/MetricCard.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-frontend-device-management-interface-with-searchable-filterable-list-of-all-iot-devices-showing-type-location-status-and-last-reading-with-ability-to-view-device-details-and-history",
+      "featureTitle": "Build frontend device management interface with searchable/filterable list of all IoT devices, showing type, location, status, and last reading, with ability to view device details and history",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/DeviceStatusBadge.tsx",
+        "frontend/src/components/DeviceTypeIcon.tsx",
+        "frontend/src/pages/DeviceDetail.tsx",
+        "frontend/src/pages/Devices.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-frontend-automation-rules-interface-where-users-can-create-edit-enable-disable-rules-with-visual-condition-builder-and-action-selector",
+      "featureTitle": "Create frontend automation rules interface where users can create, edit, enable/disable rules with visual condition builder and action selector",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ActionBuilder.tsx",
+        "frontend/src/components/ConditionBuilder.tsx",
+        "frontend/src/pages/AutomationRules.tsx",
+        "frontend/src/pages/RuleEditor.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-frontend-analytics-view-displaying-historical-sensor-data-with-interactive-charts-showing-trends-over-time-energy-consumption-patterns-and-occupancy-analytics-by-building-or-zone",
+      "featureTitle": "Build frontend analytics view displaying historical sensor data with interactive charts showing trends over time, energy consumption patterns, and occupancy analytics by building or zone",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SensorChart.tsx",
+        "frontend/src/pages/Analytics.tsx",
+        "frontend/src/utils/exportData.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-frontend-alerts-and-notifications-panel-showing-active-alerts-sorted-by-severity-with-filtering-options-and-ability-to-acknowledge-or-resolve-alerts",
+      "featureTitle": "Create frontend alerts and notifications panel showing active alerts sorted by severity, with filtering options and ability to acknowledge or resolve alerts",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AlertCard.tsx",
+        "frontend/src/components/SeverityBadge.tsx",
+        "frontend/src/pages/Alerts.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-frontend-ai-recommendations-view-displaying-optimization-suggestions-with-priority-estimated-impact-implementation-instructions-and-accept-dismiss-actions",
+      "featureTitle": "Build frontend AI recommendations view displaying optimization suggestions with priority, estimated impact, implementation instructions, and accept/dismiss actions",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/RecommendationCard.tsx",
+        "frontend/src/pages/Recommendations.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-visually-cohesive-design-system-with-a-modern-tech-forward-aesthetic-using-mint-green-and-slate-gray-as-primary-colors-with-clean-geometric-layouts-and-subtle-data-visualization-accents-that-convey-efficiency-and-intelligence",
+      "featureTitle": "Create a visually cohesive design system with a modern tech-forward aesthetic using mint green and slate gray as primary colors, with clean geometric layouts and subtle data visualization accents that convey efficiency and intelligence",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/Navigation.tsx",
+        "frontend/src/components/ProfileSetup.tsx",
+        "frontend/src/hooks/useProfile.ts",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

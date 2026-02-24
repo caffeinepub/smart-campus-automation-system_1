@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Smart Campus Automation System integrating IoT, AI, and cloud technologies to automate and optimize university campus operations with scalability, security, and user-friendly design",
+  "architectural_notes": [
+    "System must support horizontal scalability for growing campus needs",
+    "IoT devices should use standard protocols (MQTT, CoAP) for interoperability",
+    "AI models should be cloud-based for centralized processing and updates",
+    "Implement end-to-end encryption for all data transmission",
+    "Use microservices architecture for modularity and maintainability"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Modern isometric illustration of a smart campus with connected buildings and IoT sensors, using mint green and slate gray color scheme (hero-campus.dim_1200x400.png)\n- Icon set for device types: temperature sensor, occupancy sensor, energy meter, lighting control, HVAC control in mint green line style (device-icons.dim_512x512.png)\n- Abstract geometric pattern background representing data connectivity and optimization in subtle mint and gray tones (pattern-bg.dim_1920x1080.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-frontend-dashboard-displaying-real-time-campus-operations-overview-with-device-status-summary-active-alerts-count-current-sensor-readings-and-system-health-metrics",
+      "title": "Create a frontend dashboard displaying real-time campus operations overview with device status summary, active alerts count, current sensor readings, and system health metrics",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-frontend-device-management-interface-with-searchable-filterable-list-of-all-iot-devices-showing-type-location-status-and-last-reading-with-ability-to-view-device-details-and-history",
+      "title": "Build frontend device management interface with searchable/filterable list of all IoT devices, showing type, location, status, and last reading, with ability to view device details and history",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-frontend-automation-rules-interface-where-users-can-create-edit-enable-disable-rules-with-visual-condition-builder-and-action-selector",
+      "title": "Create frontend automation rules interface where users can create, edit, enable/disable rules with visual condition builder and action selector",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-frontend-analytics-view-displaying-historical-sensor-data-with-interactive-charts-showing-trends-over-time-energy-consumption-patterns-and-occupancy-analytics-by-building-or-zone",
+      "title": "Build frontend analytics view displaying historical sensor data with interactive charts showing trends over time, energy consumption patterns, and occupancy analytics by building or zone",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-frontend-alerts-and-notifications-panel-showing-active-alerts-sorted-by-severity-with-filtering-options-and-ability-to-acknowledge-or-resolve-alerts",
+      "title": "Create frontend alerts and notifications panel showing active alerts sorted by severity, with filtering options and ability to acknowledge or resolve alerts",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-frontend-ai-recommendations-view-displaying-optimization-suggestions-with-priority-estimated-impact-implementation-instructions-and-accept-dismiss-actions",
+      "title": "Build frontend AI recommendations view displaying optimization suggestions with priority, estimated impact, implementation instructions, and accept/dismiss actions",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-visually-cohesive-design-system-with-a-modern-tech-forward-aesthetic-using-mint-green-and-slate-gray-as-primary-colors-with-clean-geometric-layouts-and-subtle-data-visualization-accents-that-convey-efficiency-and-intelligence",
+      "title": "Create a visually cohesive design system with a modern tech-forward aesthetic using mint green and slate gray as primary colors, with clean geometric layouts and subtle data visualization accents that convey efficiency and intelligence",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "IoT device integration for campus sensors and actuators",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "AI-powered automation and optimization engine",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Cloud infrastructure for scalable operations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Security framework for system access and data protection",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "User-friendly interface for campus operations management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create a backend data model for campus IoT devices including device ID, type (sensor/actuator), location (building, room), status (online/offline), and last reading timestamp",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement backend functions to record and retrieve sensor readings (temperature, humidity, occupancy, energy consumption) with device ID, value, unit, and timestamp",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Create backend automation rules system where rules define conditions (sensor thresholds) and actions (actuator commands) with enable/disable status",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement backend optimization engine that analyzes sensor data patterns and generates recommendations for energy savings, space utilization, and operational efficiency",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Build backend alert system that triggers notifications when sensor values exceed thresholds or devices go offline, with severity levels and acknowledgment tracking",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Implement role-based access control with at least three roles: Admin (full system access), Operator (device monitoring and rule management), and Viewer (read-only access to dashboards and analytics)",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Smart Campus Automation System",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
